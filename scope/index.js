@@ -41,3 +41,8 @@ let prototypeofOtherVar = otherVar.__proto__
 console.log(prototypeofOtherVar);
 
 
+// Exercise 2
+console.log("Exercise 2");
+
+const namesOfTheClass = ['Tomas', 'Nicolas', 'Jorge']
+
