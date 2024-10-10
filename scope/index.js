@@ -19,26 +19,6 @@ functionVar();
 
 // Closures
 
-// examples
-function hero(name, level) {
-  this.name = name;
-  this.level = level;
-}
-
-let hero1 = new hero("tomas", 5);
-
-console.log(
-  `The name of the hero 1 is ${hero1.name}, and his level is ${hero1.level}`
-);
-let prototypeofHero1 = Object.getPrototypeOf(hero1);
-
-console.log(prototypeofHero1);
-
-let otherVar = 0;
-
-let prototypeofOtherVar = otherVar.__proto__;
-console.log(prototypeofOtherVar);
-
 // Exercise 2
 console.log("Exercise 2");
 
@@ -62,3 +42,25 @@ const functionVar2 = (paramVar) => {
 };
 
 functionVar2("Hello");
+
+// Prototypes
+
+// examples
+function hero(name, level) {
+  this.name = name;
+  this.level = level;
+}
+
+let hero1 = new hero("tomas", 5);
+
+console.log(
+  `The name of the hero 1 is ${hero1.name}, and his level is ${hero1.level}`
+);
+let prototypeofHero1 = Object.getPrototypeOf(hero1);
+
+console.log(prototypeofHero1);
+
+let otherVar = 0;
+
+let prototypeofOtherVar = otherVar.__proto__;
+console.log(prototypeofOtherVar);
