@@ -42,10 +42,24 @@ console.log(prototypeofOtherVar);
 // Exercise 2
 console.log("Exercise 2");
 
-const namesOfTheClass = ["Tomas", "Nicolas", "Jorge"];
+let namesOfTheClass = ["Tomas", "Nicolas", "Jorge"];
+
+console.log(
+  "When the code run for first time, the globalVar is",
+  namesOfTheClass
+);
 
 const functionVar2 = (paramVar) => {
-  console.log(`The received parameter is ${paramVar}`);
+  const functionVar = (greeting) => {
+    const blockVar = "I am a block variable";
+    namesOfTheClass.forEach((name, index) => {
+      console.log(`${greeting} ${name} you are in the position ${index + 1}`);
+    });
+    console.log(blockVar);
+    namesOfTheClass.push("Claudio");
+    console.log("Now the globalVar is", namesOfTheClass);
+  };
+  functionVar(paramVar);
 };
 
 functionVar2("Hello");
