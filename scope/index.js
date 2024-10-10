@@ -44,12 +44,11 @@ console.log("Exercise 2");
 
 let namesOfTheClass = ["Tomas", "Nicolas", "Jorge"];
 
-console.log(
-  "When the code run for first time, the globalVar is",
-  namesOfTheClass
-);
-
 const functionVar2 = (paramVar) => {
+  console.log(
+    "When the code run for first time, the globalVar is",
+    namesOfTheClass
+  );
   const functionVar = (greeting) => {
     const blockVar = "I am a block variable";
     namesOfTheClass.forEach((name, index) => {
