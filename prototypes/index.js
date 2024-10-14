@@ -93,13 +93,17 @@ function testing() {
 
 // testing();
 
-function compareSpeed() {
+function compareSpeed(vehicle1, vehicle2) {
   console.log("Comparing speed...");
-  const car = new Car("Chevrolet", "Camaro", 250);
-  const moto = new Moto("Kawasaki", "Ninja", 350);
+
   console.log(" ");
-  return car.maxSpeed > moto.maxSpeed
+  return vehicle1.maxSpeed > vehicle2.maxSpeed
     ? console.log(`The car is faster than the moto`)
     : console.log(`The moto is faster than the car`);
 }
-// compareSpeed()
+
+const vehicle1 = new Car("Chevrolet", "Camaro", 250);
+
+const vehicle2 = new Moto("Kawasaki", "Ninja", 150);
+
+// compareSpeed(vehicle1, vehicle2);
