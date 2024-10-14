@@ -2,7 +2,7 @@ console.log("Prototypes");
 console.log("Vehicle System Exercise");
 
 /*
-    @function vehicle
+    @Constructs vehicle
     @returns {object} vehicle
 */
 
@@ -13,27 +13,29 @@ function Vehicle(mark, model, maxSpeed) {
 }
 
 Vehicle.prototype.accelerate = function () {
-  console.log("Accelerating");
+  return "Accelerating";
 };
 
 Vehicle.prototype.stop = function () {
-  console.log("Stopping");
+  return "Stopping";
 };
 
 Vehicle.prototype.showInfo = function () {
-  console.log(
-    `The mark is ${this.mark}, the model: ${this.model} and the max speed is: ${this.maxSpeed}`
-  );
+  return `The mark is ${this.mark}, the model: ${this.model} and the max speed is: ${this.maxSpeed}`;
 };
 
-const tiguan = new Vehicle("Volkswagen", "Tiguan", 220);
-console.log(tiguan);
+/*
+    @Constructs car
+    hereditary from vehicle
+    returns {Object} car
+*/
 
-tiguan.accelerate();
+function Car(mark, model, maxSpeed) {
+  Vehicle.call(this, mark, model, maxSpeed);
 
-setTimeout(() => {
-  tiguan.stop();
-  setTimeout(() => {
-    tiguan.showInfo();
-  }, 1000);
-}, 1000);
+  Object.setPrototypeOf(Car.prototype, Vehicle.prototype);
+
+  Car.prototype.openDoors = function () {
+    return "Opening doors";
+  };
+}
