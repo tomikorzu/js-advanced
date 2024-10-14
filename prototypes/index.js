@@ -39,3 +39,19 @@ function Car(mark, model, maxSpeed) {
     return "Opening doors";
   };
 }
+
+/*
+    @Constructs Moto
+    hereditary from vehicle
+    returns {Object} moto
+*/
+
+function Moto(mark, model, maxSpeed) {
+  Vehicle.call(this, mark, model, maxSpeed);
+
+  Object.setPrototypeOf(Moto.prototype, Vehicle.prototype);
+
+    Moto.prototype.showSideCar = function() {
+        return "Showing sidecar";
+    }
+}
