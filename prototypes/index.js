@@ -51,7 +51,44 @@ function Moto(mark, model, maxSpeed) {
 
   Object.setPrototypeOf(Moto.prototype, Vehicle.prototype);
 
-    Moto.prototype.showSideCar = function() {
-        return "Showing sidecar";
-    }
+  Moto.prototype.showSideCar = function () {
+    return "Showing sidecar";
+  };
 }
+
+/*
+    @Testing
+*/
+function testing() {
+  console.log("Testing...");
+  const car1 = new Car("Toyota", "Corolla", 200);
+  const car2 = new Car("Chevrolet", "Camaro", 250);
+  const moto1 = new Moto("Yamaha", "R1", 300);
+  const moto2 = new Moto("Kawasaki", "Ninja", 350);
+
+  console.log(" ");
+
+  console.log(car1.model);
+  console.log(car1.accelerate());
+  console.log(car1.stop());
+
+  console.log(" ");
+
+  console.log(car2.model);
+  console.log(car2.accelerate());
+  console.log(car2.stop());
+
+  console.log(" ");
+
+  console.log(moto1.model);
+  console.log(moto1.accelerate());
+  console.log(moto1.stop());
+
+  console.log(" ");
+
+  console.log(moto2.model);
+  console.log(moto2.accelerate());
+  console.log(moto2.stop());
+}
+
+// testing();
