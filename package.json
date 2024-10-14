@@ -5,6 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start": "node ./prototypes/index.js",
+    "prototypes": "node ./prototypes/index.js",
     "scope": "node ./scope/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
