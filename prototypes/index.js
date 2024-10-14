@@ -92,3 +92,14 @@ function testing() {
 }
 
 // testing();
+
+function compareSpeed() {
+  console.log("Comparing speed...");
+  const car = new Car("Chevrolet", "Camaro", 250);
+  const moto = new Moto("Kawasaki", "Ninja", 350);
+  console.log(" ");
+  return car.maxSpeed > moto.maxSpeed
+    ? console.log(`The car is faster than the moto`)
+    : console.log(`The moto is faster than the car`);
+}
+// compareSpeed()
