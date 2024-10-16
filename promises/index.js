@@ -37,25 +37,29 @@ class fileDownload {
   }
 }
 
-const windows = new fileDownload("Windows 11", "50mb", false);
-const ubuntu = new fileDownload("Ubuntu", "25mb", false);
-const macOS = new fileDownload("macOS", "5mb", false);
+const windows = new fileDownload("Windows 11", "50mb", true);
+const ubuntu = new fileDownload("Ubuntu", "25mb", true);
+const macOS = new fileDownload("macOS", "5mb", true);
 
 const downloads = [windows.download(), ubuntu.download(), macOS.download()];
 
 Promise.all(downloads)
-  .then((response) =>
-    console.log(
-      `All the files was downloaded successfully: ${kleur.green(
-        response.map((r) => {
-          return r.message;
-        })
-      )}`
-    )
-  )
+  .then((response) => allYes(response))
   .catch((error) =>
     console.log("Some downloads failed:", kleur.red(error.message))
   );
+
+function allYes(response) {
+  console.log(
+    `${kleur.yellow(
+      "All the files was downloaded successfully:"
+    )} ${kleur.green(
+      response.map((r) => {
+        return r.message;
+      })
+    )}`
+  );
+}
 
 Promise.allSettled(downloads).then((response) => whichYesAndNo(response));
 
