@@ -37,9 +37,9 @@ class fileDownload {
   }
 }
 
-const windows = new fileDownload("Windows 11", "50mb", true);
-const ubuntu = new fileDownload("Ubuntu", "25mb", true);
-const macOS = new fileDownload("macOS", "5mb", true);
+const windows = new fileDownload("Windows 11", "50mb", false);
+const ubuntu = new fileDownload("Ubuntu", "25mb", false);
+const macOS = new fileDownload("macOS", "5mb", false);
 
 const downloads = [windows.download(), ubuntu.download(), macOS.download()];
 
@@ -73,10 +73,12 @@ function whichYesAndNo(response) {
   });
 }
 
-// Promise.any(downloads)
-//   .then((response) =>
-//     console.log(
-//       `The first file that was downloaded was ${kleur.green(response.name)}`
-//     )
-//   )
-//   .catch((error) => console.log("There was an error:", error));
+Promise.any(downloads)
+  .then((response) =>
+    console.log(kleur.blue(`The first file downloaded was: ${response.name}`))
+  )
+  .catch((error) =>
+    console.log(
+      `All the files were not successful because: ${kleur.red(error.message)}`
+    )
+  );
