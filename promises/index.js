@@ -57,6 +57,18 @@ Promise.all(downloads)
     console.log("Some downloads failed:", kleur.red(error.message))
   );
 
+Promise.allSettled(downloads).then((response) => whichYesAndNo(response));
+
+function whichYesAndNo(response) {
+  response.forEach((r) => {
+    if (r.status === "fulfilled") {
+      console.log(kleur.green(r.value.message));
+    } else {
+      console.log(kleur.red(r.reason.message));
+    }
+  });
+}
+
 // Promise.any(downloads)
 //   .then((response) =>
 //     console.log(
