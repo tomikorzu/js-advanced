@@ -10,7 +10,7 @@ class fileDownload {
   }
 
   download() {
-    const randomTime = Math.floor(Math.random() * 100);
+    const randomTime = (Math.random() * 100).toFixed();
     const downloadTime = this.fileSize * randomTime;
 
     return new Promise((resolve, reject) => {
@@ -38,25 +38,29 @@ class fileDownload {
 }
 
 const windows = new fileDownload("Windows 11", "50mb", false);
-const ubuntu = new fileDownload("Ubuntu", "25mb", true);
-const macOS = new fileDownload("macOS", "5mb", true);
+const ubuntu = new fileDownload("Ubuntu", "25mb", false);
+const macOS = new fileDownload("macOS", "5mb", false);
 
 const downloads = [windows.download(), ubuntu.download(), macOS.download()];
 
 Promise.all(downloads)
   .then((response) =>
     console.log(
-      response.map((r) => {
-        return r.message;
-      })
+      `All the files was downloaded successfully: ${kleur.green(
+        response.map((r) => {
+          return r.message;
+        })
+      )}`
     )
   )
-  .catch((error) => console.log("There was an error:", error));
+  .catch((error) =>
+    console.log("Some downloads failed:", kleur.red(error.message))
+  );
 
-Promise.any(downloads)
-  .then((response) =>
-    console.log(
-      `The first file that was downloaded was ${kleur.green(response.name)}`
-    )
-  )
-  .catch((error) => console.log("There was an error:", error));
+// Promise.any(downloads)
+//   .then((response) =>
+//     console.log(
+//       `The first file that was downloaded was ${kleur.green(response.name)}`
+//     )
+//   )
+//   .catch((error) => console.log("There was an error:", error));
