@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node ./promises/index.js",
+    "performance": "node ./performance/index.js",
     "promises": "node ./promises/index.js",
     "raceConditions": "node ./raceConditions/index.js",
     "prototypes": "node ./prototypes/index.js",
