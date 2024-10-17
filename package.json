@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node ./promises/index.js",
+    "start": "node ./performance/index.js",
     "performance": "node ./performance/index.js",
     "promises": "node ./promises/index.js",
     "raceConditions": "node ./raceConditions/index.js",
