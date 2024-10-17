@@ -104,3 +104,33 @@ function forLocal() {
 // ForLocal 5.5s
 
 // Tarda mas la variable global porque tiene que salir al scope generar, bucar la variable y sumarle, miemtras que la local, solo tiene que buscarla en el mismo scope y sumarle.
+
+console.log("Optimization of code");
+
+console.time("For Loop");
+
+// stringConcatenation();
+templateLiterals();
+
+console.timeEnd("For Loop");
+
+function stringConcatenation() {
+  let word = "";
+  for (let i = 0; i < 1000000; i++) {
+    word = "Word " + i;
+  }
+  console.log("StringConcatenation");
+}
+
+// StringConcatenation 104.5s
+
+function templateLiterals() {
+  let word = "";
+  for (let i = 0; i < 1000000; i++) {
+    word = `Word ${i}`;
+  }
+  console.log("TemplateLiterals");
+}
+// TemplateLiterals 70.5s
+
+// No se por que una es mas rapida que la otra
