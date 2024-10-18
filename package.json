@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node ./performance/index.js",
+    "start": "node ./logic-tp/index.js",
+    "logic-tp": "node ./logic-tp/index.js",
     "performance": "node ./performance/index.js",
     "promises": "node ./promises/index.js",
     "raceConditions": "node ./raceConditions/index.js",
