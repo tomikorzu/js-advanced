@@ -19,10 +19,37 @@ const excercise1 = () => {
   );
 };
 
-excercise1();
+// excercise1();
 
 const exercise2 = () => {
   console.log("Exercise 2");
+
+  const users = [
+    {
+      id: 1,
+      lastTime: new Date("October 18, 2024 09:42:00"),
+    },
+    {
+      id: 2,
+      lastTime: new Date("October 17, 2024 09:14:00"),
+    },
+    {
+      id: 3,
+      lastTime: new Date("October 18, 2024 09:14:00"),
+    },
+  ];
+
+  const userLoggedInInLast30Minutes = (users) => {
+    return users.some((user) => {
+      const now = new Date();
+      const diff = now - user.lastTime;
+      const diffInMinutes = diff / 1000 / 60;
+      return diffInMinutes <= 30;
+    });
+  };
+  console.log(userLoggedInInLast30Minutes(users));
+  console.log(`${kleur.yellow("Explicacion:")} se crea la funcion userLoggedInInLast30Minutes, que recibe un array de usuarios, y devuelve true si alguno de los usuarios se logueo en los ultimos 30 minutos, para esto se compara la fecha actual con la fecha del usuario, se calcula la diferencia en minutos y se compara si es menor o igual a 30`);
+  
 };
 
 exercise2();
